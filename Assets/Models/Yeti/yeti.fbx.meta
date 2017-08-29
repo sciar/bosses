@@ -1,0 +1,192 @@
+fileFormatVersion: 2
+guid: 991fe728a3f6554419309708bb649bd6
+timeCreated: 1462492131
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bn_Head
+    100002: bn_Hips
+    100004: bn_JawPivot
+    100006: bn_Left_ArmUp
+    100008: bn_Left_Foot
+    100010: bn_Left_ForeArm
+    100012: bn_Left_ForearmRoll
+    100014: bn_Left_Index_A
+    100016: bn_Left_Index_B
+    100018: bn_Left_Index_C
+    100020: bn_Left_Leg
+    100022: bn_Left_LegUp
+    100024: bn_Left_Middle_A
+    100026: bn_Left_Middle_B
+    100028: bn_Left_Middle_C
+    100030: bn_Left_Ring_A
+    100032: bn_Left_Ring_B
+    100034: bn_Left_Ring_C
+    100036: bn_Left_Shoulder
+    100038: bn_Left_Thumb_A
+    100040: bn_Left_Thumb_B
+    100042: bn_Left_Thumb_C
+    100044: bn_Left_Toe
+    100046: bn_Left_Wrist
+    100048: bn_Mouth
+    100050: bn_Neck_A
+    100052: bn_Neck_B
+    100054: bn_Right_ArmUp
+    100056: bn_Right_Foot
+    100058: bn_Right_ForeArm
+    100060: bn_Right_ForearmRoll
+    100062: bn_Right_Index_A
+    100064: bn_Right_Index_B
+    100066: bn_Right_Index_C
+    100068: bn_Right_Leg
+    100070: bn_Right_LegUp
+    100072: bn_Right_Middle_A
+    100074: bn_Right_Middle_B
+    100076: bn_Right_Middle_C
+    100078: bn_Right_Ring_A
+    100080: bn_Right_Ring_B
+    100082: bn_Right_Ring_C
+    100084: bn_Right_Shoulder
+    100086: bn_Right_Thumb_A
+    100088: bn_Right_Thumb_B
+    100090: bn_Right_Thumb_C
+    100092: bn_Right_Toe
+    100094: bn_Right_Wrist
+    100096: bn_Spine_A
+    100098: bn_Spine_B
+    100100: skn_Yeti_LOD_0
+    100102: skn_Yeti_LOD_1
+    100104: skn_Yeti_LOD_2
+    100106: //RootNode
+    100108: Yeti_Bones
+    100110: Yeti_GlobalMove
+    100112: Yeti_Skins
+    400000: bn_Head
+    400002: bn_Hips
+    400004: bn_JawPivot
+    400006: bn_Left_ArmUp
+    400008: bn_Left_Foot
+    400010: bn_Left_ForeArm
+    400012: bn_Left_ForearmRoll
+    400014: bn_Left_Index_A
+    400016: bn_Left_Index_B
+    400018: bn_Left_Index_C
+    400020: bn_Left_Leg
+    400022: bn_Left_LegUp
+    400024: bn_Left_Middle_A
+    400026: bn_Left_Middle_B
+    400028: bn_Left_Middle_C
+    400030: bn_Left_Ring_A
+    400032: bn_Left_Ring_B
+    400034: bn_Left_Ring_C
+    400036: bn_Left_Shoulder
+    400038: bn_Left_Thumb_A
+    400040: bn_Left_Thumb_B
+    400042: bn_Left_Thumb_C
+    400044: bn_Left_Toe
+    400046: bn_Left_Wrist
+    400048: bn_Mouth
+    400050: bn_Neck_A
+    400052: bn_Neck_B
+    400054: bn_Right_ArmUp
+    400056: bn_Right_Foot
+    400058: bn_Right_ForeArm
+    400060: bn_Right_ForearmRoll
+    400062: bn_Right_Index_A
+    400064: bn_Right_Index_B
+    400066: bn_Right_Index_C
+    400068: bn_Right_Leg
+    400070: bn_Right_LegUp
+    400072: bn_Right_Middle_A
+    400074: bn_Right_Middle_B
+    400076: bn_Right_Middle_C
+    400078: bn_Right_Ring_A
+    400080: bn_Right_Ring_B
+    400082: bn_Right_Ring_C
+    400084: bn_Right_Shoulder
+    400086: bn_Right_Thumb_A
+    400088: bn_Right_Thumb_B
+    400090: bn_Right_Thumb_C
+    400092: bn_Right_Toe
+    400094: bn_Right_Wrist
+    400096: bn_Spine_A
+    400098: bn_Spine_B
+    400100: skn_Yeti_LOD_0
+    400102: skn_Yeti_LOD_1
+    400104: skn_Yeti_LOD_2
+    400106: //RootNode
+    400108: Yeti_Bones
+    400110: Yeti_GlobalMove
+    400112: Yeti_Skins
+    4300000: skn_Yeti_LOD_0
+    4300002: skn_Yeti_LOD_1
+    4300004: skn_Yeti_LOD_2
+    9500000: //RootNode
+    13700000: skn_Yeti_LOD_0
+    13700002: skn_Yeti_LOD_1
+    13700004: skn_Yeti_LOD_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

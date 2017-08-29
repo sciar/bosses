@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 302c6fc01782ba9439a09cce6c56c1fd
+timeCreated: 1463117660
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: polySurface1
+    100004: pPlane10
+    100006: pPlane11
+    100008: pPlane13
+    100010: pPlane14
+    100012: pPlane15
+    100014: pPlane16
+    100016: pPlane17
+    100018: pPlane18
+    100020: pPlane2
+    100022: pPlane3
+    100024: pPlane4
+    100026: pPlane5
+    100028: pPlane6
+    100030: pPlane7
+    100032: pPlane8
+    100034: pPlane9
+    100036: tree_blossom_geo
+    100038: blossom_tree_02_grp
+    100040: tree_blossom_01
+    100042: tree_blossom_02
+    400000: //RootNode
+    400002: polySurface1
+    400004: pPlane10
+    400006: pPlane11
+    400008: pPlane13
+    400010: pPlane14
+    400012: pPlane15
+    400014: pPlane16
+    400016: pPlane17
+    400018: pPlane18
+    400020: pPlane2
+    400022: pPlane3
+    400024: pPlane4
+    400026: pPlane5
+    400028: pPlane6
+    400030: pPlane7
+    400032: pPlane8
+    400034: pPlane9
+    400036: tree_blossom_geo
+    400038: blossom_tree_02_grp
+    400040: tree_blossom_01
+    400042: tree_blossom_02
+    2300000: polySurface1
+    2300002: pPlane10
+    2300004: pPlane11
+    2300006: pPlane13
+    2300008: pPlane14
+    2300010: pPlane15
+    2300012: pPlane16
+    2300014: pPlane17
+    2300016: pPlane18
+    2300018: pPlane2
+    2300020: pPlane3
+    2300022: pPlane4
+    2300024: pPlane5
+    2300026: pPlane6
+    2300028: pPlane7
+    2300030: pPlane8
+    2300032: pPlane9
+    2300034: //RootNode
+    2300036: tree_blossom_geo
+    2300038: tree_blossom_02
+    3300000: polySurface1
+    3300002: pPlane10
+    3300004: pPlane11
+    3300006: pPlane13
+    3300008: pPlane14
+    3300010: pPlane15
+    3300012: pPlane16
+    3300014: pPlane17
+    3300016: pPlane18
+    3300018: pPlane2
+    3300020: pPlane3
+    3300022: pPlane4
+    3300024: pPlane5
+    3300026: pPlane6
+    3300028: pPlane7
+    3300030: pPlane8
+    3300032: pPlane9
+    3300034: //RootNode
+    3300036: tree_blossom_geo
+    3300038: tree_blossom_02
+    4300000: polySurface1
+    4300002: pPlane2
+    4300004: pPlane3
+    4300006: pPlane4
+    4300008: pPlane5
+    4300010: pPlane6
+    4300012: pPlane7
+    4300014: pPlane8
+    4300016: pPlane9
+    4300018: pPlane10
+    4300020: pPlane11
+    4300022: pPlane13
+    4300024: pPlane14
+    4300026: pPlane15
+    4300028: pPlane16
+    4300030: pPlane17
+    4300032: pPlane18
+    4300034: tree_blossom_geo
+    4300036: tree_blossom_02
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

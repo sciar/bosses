@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9f8b9c49799e25f49b9dc2f8a5921eb4
+timeCreated: 1463776875
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - tree: {fileID: 198042, guid: b3a0050a37322d44db6beff5739e1078, type: 2}
+  - jelly: {fileID: 126908, guid: 81d5e403f5561bf48aa892006a6196b9, type: 2}
+  - yeti: {fileID: 169940, guid: a5297ae2fc278b242ae0e746df6a41f8, type: 2}
+  - spawnPoint1: {instanceID: 0}
+  - spawnPoint2: {instanceID: 0}
+  - spawnPoint3: {instanceID: 0}
+  - spawnPoint4: {instanceID: 0}
+  - spawnPoint5: {instanceID: 0}
+  - spawnPoint6: {instanceID: 0}
+  - spawnPoint7: {instanceID: 0}
+  - spawnPoint8: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

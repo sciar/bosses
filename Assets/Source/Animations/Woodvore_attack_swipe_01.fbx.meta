@@ -1,0 +1,681 @@
+fileFormatVersion: 2
+guid: d7cef4a099e5e5c45a9bf41c8e788cec
+timeCreated: 1468774169
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Chest_M
+    100006: Cup_L
+    100008: Cup_R
+    100010: DeformationSystem
+    100012: EarEnd_L
+    100014: EarEnd_R
+    100016: Elbow_L
+    100018: Elbow_R
+    100020: ElbowPart1_L
+    100022: ElbowPart1_R
+    100024: ElbowPart2_L
+    100026: ElbowPart2_R
+    100028: FKCup_L
+    100030: FKCup_R
+    100032: FKExtraCup_L
+    100034: FKExtraCup_R
+    100036: FKExtraHead_M
+    100038: FKExtraIndexFinger1_L
+    100040: FKExtraIndexFinger1_R
+    100042: FKExtraMiddleFinger1_L
+    100044: FKExtraMiddleFinger1_R
+    100046: FKExtraNeck_M
+    100048: FKExtraNeckPart1_M
+    100050: FKExtraNeckPart2_M
+    100052: FKExtraRingFinger1_L
+    100054: FKExtraRingFinger1_R
+    100056: FKExtraScapula_L
+    100058: FKExtraScapula_R
+    100060: FKExtraToes_L
+    100062: FKExtraToes_R
+    100064: FKFootRollIKToes_L
+    100066: FKFootRollIKToes_R
+    100068: FKGlobalHead_M
+    100070: FKGlobalStaticHead_M
+    100072: FKHead_M
+    100074: FKIndexFinger1_L
+    100076: FKIndexFinger1_R
+    100078: FKMiddleFinger1_L
+    100080: FKMiddleFinger1_R
+    100082: FKNeck_M
+    100084: FKNeckPart1_M
+    100086: FKNeckPart2_M
+    100088: FKOffsetCup_L
+    100090: FKOffsetCup_R
+    100092: FKOffsetHead_M
+    100094: FKOffsetIndexFinger1_L
+    100096: FKOffsetIndexFinger1_R
+    100098: FKOffsetMiddleFinger1_L
+    100100: FKOffsetMiddleFinger1_R
+    100102: FKOffsetNeck_M
+    100104: FKOffsetNeckPart1_M
+    100106: FKOffsetNeckPart2_M
+    100108: FKOffsetRingFinger1_L
+    100110: FKOffsetRingFinger1_R
+    100112: FKOffsetScapula_L
+    100114: FKOffsetScapula_R
+    100116: FKOffsetToes_L
+    100118: FKOffsetToes_R
+    100120: FKParentConstraintToAnkle_L
+    100122: FKParentConstraintToAnkle_R
+    100124: FKParentConstraintToChest_M
+    100126: FKParentConstraintToWrist_L
+    100128: FKParentConstraintToWrist_R
+    100130: FKRingFinger1_L
+    100132: FKRingFinger1_R
+    100134: FKScapula_L
+    100136: FKScapula_R
+    100138: FKSystem
+    100140: FKToes_L
+    100142: FKToes_R
+    100144: FKXCup_L
+    100146: FKXCup_R
+    100148: FKXNeck_M
+    100150: FKXNeckPart1_M
+    100152: FKXNeckPart2_M
+    100154: Head_M
+    100156: HeadEnd_M
+    100158: Hip_L
+    100160: Hip_R
+    100162: HipPart1_L
+    100164: HipPart1_R
+    100166: HipPart2_L
+    100168: HipPart2_R
+    100170: IndexFinger1_L
+    100172: IndexFinger1_R
+    100174: IndexFinger2_L
+    100176: IndexFinger2_R
+    100178: Jaw_M
+    100180: Knee_L
+    100182: Knee_R
+    100184: Main
+    100186: MiddleFinger1_L
+    100188: MiddleFinger1_R
+    100190: MiddleFinger2_L
+    100192: MiddleFinger2_R
+    100194: MotionSystem
+    100196: Neck_M
+    100198: NeckPart1_M
+    100200: NeckPart2_M
+    100202: RingFinger1_L
+    100204: RingFinger1_R
+    100206: RingFinger2_L
+    100208: RingFinger2_R
+    100210: Root_M
+    100212: RootPart1_M
+    100214: RootPart2_M
+    100216: Scapula_L
+    100218: Scapula_R
+    100220: SDK1FKCup_L
+    100222: SDK1FKCup_R
+    100224: SDK1FKIndexFinger1_L
+    100226: SDK1FKIndexFinger1_R
+    100228: SDK1FKMiddleFinger1_L
+    100230: SDK1FKMiddleFinger1_R
+    100232: SDK1FKRingFinger1_L
+    100234: SDK1FKRingFinger1_R
+    100236: SDK2FKIndexFinger1_L
+    100238: SDK2FKIndexFinger1_R
+    100240: SDK2FKRingFinger1_L
+    100242: SDK2FKRingFinger1_R
+    100244: Shoulder_L
+    100246: Shoulder_R
+    100248: ShoulderPart1_L
+    100250: ShoulderPart1_R
+    100252: ShoulderPart2_L
+    100254: ShoulderPart2_R
+    100256: Spine1_M
+    100258: Spine1Part1_M
+    100260: Spine1Part2_M
+    100262: Tail0_M
+    100264: Tail1_M
+    100266: Tail2_M
+    100268: Tail3_M
+    100270: Tail4_M
+    100272: Tail5_M
+    100274: Tail6_M
+    100276: Toes_L
+    100278: Toes_R
+    100280: ToesEnd_L
+    100282: ToesEnd_R
+    100284: //RootNode
+    100286: Wrist_L
+    100288: Wrist_R
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Chest_M
+    400006: Cup_L
+    400008: Cup_R
+    400010: DeformationSystem
+    400012: EarEnd_L
+    400014: EarEnd_R
+    400016: Elbow_L
+    400018: Elbow_R
+    400020: ElbowPart1_L
+    400022: ElbowPart1_R
+    400024: ElbowPart2_L
+    400026: ElbowPart2_R
+    400028: FKCup_L
+    400030: FKCup_R
+    400032: FKExtraCup_L
+    400034: FKExtraCup_R
+    400036: FKExtraHead_M
+    400038: FKExtraIndexFinger1_L
+    400040: FKExtraIndexFinger1_R
+    400042: FKExtraMiddleFinger1_L
+    400044: FKExtraMiddleFinger1_R
+    400046: FKExtraNeck_M
+    400048: FKExtraNeckPart1_M
+    400050: FKExtraNeckPart2_M
+    400052: FKExtraRingFinger1_L
+    400054: FKExtraRingFinger1_R
+    400056: FKExtraScapula_L
+    400058: FKExtraScapula_R
+    400060: FKExtraToes_L
+    400062: FKExtraToes_R
+    400064: FKFootRollIKToes_L
+    400066: FKFootRollIKToes_R
+    400068: FKGlobalHead_M
+    400070: FKGlobalStaticHead_M
+    400072: FKHead_M
+    400074: FKIndexFinger1_L
+    400076: FKIndexFinger1_R
+    400078: FKMiddleFinger1_L
+    400080: FKMiddleFinger1_R
+    400082: FKNeck_M
+    400084: FKNeckPart1_M
+    400086: FKNeckPart2_M
+    400088: FKOffsetCup_L
+    400090: FKOffsetCup_R
+    400092: FKOffsetHead_M
+    400094: FKOffsetIndexFinger1_L
+    400096: FKOffsetIndexFinger1_R
+    400098: FKOffsetMiddleFinger1_L
+    400100: FKOffsetMiddleFinger1_R
+    400102: FKOffsetNeck_M
+    400104: FKOffsetNeckPart1_M
+    400106: FKOffsetNeckPart2_M
+    400108: FKOffsetRingFinger1_L
+    400110: FKOffsetRingFinger1_R
+    400112: FKOffsetScapula_L
+    400114: FKOffsetScapula_R
+    400116: FKOffsetToes_L
+    400118: FKOffsetToes_R
+    400120: FKParentConstraintToAnkle_L
+    400122: FKParentConstraintToAnkle_R
+    400124: FKParentConstraintToChest_M
+    400126: FKParentConstraintToWrist_L
+    400128: FKParentConstraintToWrist_R
+    400130: FKRingFinger1_L
+    400132: FKRingFinger1_R
+    400134: FKScapula_L
+    400136: FKScapula_R
+    400138: FKSystem
+    400140: FKToes_L
+    400142: FKToes_R
+    400144: FKXCup_L
+    400146: FKXCup_R
+    400148: FKXNeck_M
+    400150: FKXNeckPart1_M
+    400152: FKXNeckPart2_M
+    400154: Head_M
+    400156: HeadEnd_M
+    400158: Hip_L
+    400160: Hip_R
+    400162: HipPart1_L
+    400164: HipPart1_R
+    400166: HipPart2_L
+    400168: HipPart2_R
+    400170: IndexFinger1_L
+    400172: IndexFinger1_R
+    400174: IndexFinger2_L
+    400176: IndexFinger2_R
+    400178: Jaw_M
+    400180: Knee_L
+    400182: Knee_R
+    400184: Main
+    400186: MiddleFinger1_L
+    400188: MiddleFinger1_R
+    400190: MiddleFinger2_L
+    400192: MiddleFinger2_R
+    400194: MotionSystem
+    400196: Neck_M
+    400198: NeckPart1_M
+    400200: NeckPart2_M
+    400202: RingFinger1_L
+    400204: RingFinger1_R
+    400206: RingFinger2_L
+    400208: RingFinger2_R
+    400210: Root_M
+    400212: RootPart1_M
+    400214: RootPart2_M
+    400216: Scapula_L
+    400218: Scapula_R
+    400220: SDK1FKCup_L
+    400222: SDK1FKCup_R
+    400224: SDK1FKIndexFinger1_L
+    400226: SDK1FKIndexFinger1_R
+    400228: SDK1FKMiddleFinger1_L
+    400230: SDK1FKMiddleFinger1_R
+    400232: SDK1FKRingFinger1_L
+    400234: SDK1FKRingFinger1_R
+    400236: SDK2FKIndexFinger1_L
+    400238: SDK2FKIndexFinger1_R
+    400240: SDK2FKRingFinger1_L
+    400242: SDK2FKRingFinger1_R
+    400244: Shoulder_L
+    400246: Shoulder_R
+    400248: ShoulderPart1_L
+    400250: ShoulderPart1_R
+    400252: ShoulderPart2_L
+    400254: ShoulderPart2_R
+    400256: Spine1_M
+    400258: Spine1Part1_M
+    400260: Spine1Part2_M
+    400262: Tail0_M
+    400264: Tail1_M
+    400266: Tail2_M
+    400268: Tail3_M
+    400270: Tail4_M
+    400272: Tail5_M
+    400274: Tail6_M
+    400276: Toes_L
+    400278: Toes_R
+    400280: ToesEnd_L
+    400282: ToesEnd_R
+    400284: //RootNode
+    400286: Wrist_L
+    400288: Wrist_R
+    7400000: Swipe - 01
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Swipe - 01
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Main
+        weight: 1
+      - path: Main/DeformationSystem
+        weight: 1
+      - path: Main/DeformationSystem/Root_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_L/HipPart1_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_L/HipPart1_L/HipPart2_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_L/HipPart1_L/HipPart2_L/Knee_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_L/HipPart1_L/HipPart2_L/Knee_L/Ankle_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_L/HipPart1_L/HipPart2_L/Knee_L/Ankle_L/Toes_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_L/HipPart1_L/HipPart2_L/Knee_L/Ankle_L/Toes_L/ToesEnd_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_R/HipPart1_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_R/HipPart1_R/HipPart2_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_R/HipPart1_R/HipPart2_R/Knee_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_R/HipPart1_R/HipPart2_R/Knee_R/Ankle_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_R/HipPart1_R/HipPart2_R/Knee_R/Ankle_R/Toes_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Hip_R/HipPart1_R/HipPart2_R/Knee_R/Ankle_R/Toes_R/ToesEnd_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Neck_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Neck_M/NeckPart1_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Neck_M/NeckPart1_M/NeckPart2_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Neck_M/NeckPart1_M/NeckPart2_M/Head_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Neck_M/NeckPart1_M/NeckPart2_M/Head_M/EarEnd_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Neck_M/NeckPart1_M/NeckPart2_M/Head_M/EarEnd_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Neck_M/NeckPart1_M/NeckPart2_M/Head_M/HeadEnd_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Neck_M/NeckPart1_M/NeckPart2_M/Head_M/Jaw_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L/Cup_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L/Cup_L/RingFinger1_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L/Cup_L/RingFinger1_L/RingFinger2_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L/IndexFinger1_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L/IndexFinger1_L/IndexFinger2_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L/MiddleFinger1_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L/MiddleFinger1_L/MiddleFinger2_L
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R/Cup_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R/Cup_R/RingFinger1_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R/Cup_R/RingFinger1_R/RingFinger2_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R/IndexFinger1_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R/IndexFinger1_R/IndexFinger2_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R/MiddleFinger1_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R/MiddleFinger1_R/MiddleFinger2_R
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Tail0_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Tail0_M/Tail1_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M/Tail5_M
+        weight: 1
+      - path: Main/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M/Tail5_M/Tail6_M
+        weight: 1
+      - path: Main/MotionSystem
+        weight: 1
+      - path: Main/MotionSystem/FKSystem
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_L/FKOffsetToes_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_L/FKOffsetToes_L/FKFootRollIKToes_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_L/FKOffsetToes_L/FKFootRollIKToes_L/FKExtraToes_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_L/FKOffsetToes_L/FKFootRollIKToes_L/FKExtraToes_L/FKToes_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_R/FKOffsetToes_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_R/FKOffsetToes_R/FKFootRollIKToes_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_R/FKOffsetToes_R/FKFootRollIKToes_R/FKExtraToes_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToAnkle_R/FKOffsetToes_R/FKFootRollIKToes_R/FKExtraToes_R/FKToes_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKNeck_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M/FKExtraNeckPart2_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M/FKExtraNeckPart2_M/FKNeckPart2_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M/FKExtraNeckPart2_M/FKNeckPart2_M/FKXNeckPart2_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M/FKExtraNeckPart2_M/FKNeckPart2_M/FKXNeckPart2_M/FKOffsetHead_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M/FKExtraNeckPart2_M/FKNeckPart2_M/FKXNeckPart2_M/FKOffsetHead_M/FKGlobalStaticHead_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M/FKExtraNeckPart2_M/FKNeckPart2_M/FKXNeckPart2_M/FKOffsetHead_M/FKGlobalStaticHead_M/FKGlobalHead_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M/FKExtraNeckPart2_M/FKNeckPart2_M/FKXNeckPart2_M/FKOffsetHead_M/FKGlobalStaticHead_M/FKGlobalHead_M/FKExtraHead_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetNeck_M/FKExtraNeck_M/FKXNeck_M/FKOffsetNeckPart1_M/FKExtraNeckPart1_M/FKNeckPart1_M/FKXNeckPart1_M/FKOffsetNeckPart2_M/FKExtraNeckPart2_M/FKNeckPart2_M/FKXNeckPart2_M/FKOffsetHead_M/FKGlobalStaticHead_M/FKGlobalHead_M/FKExtraHead_M/FKHead_M
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetScapula_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetScapula_L/FKExtraScapula_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetScapula_L/FKExtraScapula_L/FKScapula_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetScapula_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetScapula_R/FKExtraScapula_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToChest_M/FKOffsetScapula_R/FKExtraScapula_R/FKScapula_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L/FKExtraCup_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L/FKExtraCup_L/FKCup_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L/FKExtraCup_L/FKCup_L/FKXCup_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L/FKExtraCup_L/FKCup_L/FKXCup_L/FKOffsetRingFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L/FKExtraCup_L/FKCup_L/FKXCup_L/FKOffsetRingFinger1_L/SDK1FKRingFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L/FKExtraCup_L/FKCup_L/FKXCup_L/FKOffsetRingFinger1_L/SDK1FKRingFinger1_L/SDK2FKRingFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L/FKExtraCup_L/FKCup_L/FKXCup_L/FKOffsetRingFinger1_L/SDK1FKRingFinger1_L/SDK2FKRingFinger1_L/FKExtraRingFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetCup_L/SDK1FKCup_L/FKExtraCup_L/FKCup_L/FKXCup_L/FKOffsetRingFinger1_L/SDK1FKRingFinger1_L/SDK2FKRingFinger1_L/FKExtraRingFinger1_L/FKRingFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetIndexFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetIndexFinger1_L/SDK1FKIndexFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetIndexFinger1_L/SDK1FKIndexFinger1_L/SDK2FKIndexFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetIndexFinger1_L/SDK1FKIndexFinger1_L/SDK2FKIndexFinger1_L/FKExtraIndexFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetIndexFinger1_L/SDK1FKIndexFinger1_L/SDK2FKIndexFinger1_L/FKExtraIndexFinger1_L/FKIndexFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetMiddleFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetMiddleFinger1_L/SDK1FKMiddleFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetMiddleFinger1_L/SDK1FKMiddleFinger1_L/FKExtraMiddleFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_L/FKOffsetMiddleFinger1_L/SDK1FKMiddleFinger1_L/FKExtraMiddleFinger1_L/FKMiddleFinger1_L
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R/FKExtraCup_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R/FKExtraCup_R/FKCup_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R/FKExtraCup_R/FKCup_R/FKXCup_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R/FKExtraCup_R/FKCup_R/FKXCup_R/FKOffsetRingFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R/FKExtraCup_R/FKCup_R/FKXCup_R/FKOffsetRingFinger1_R/SDK1FKRingFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R/FKExtraCup_R/FKCup_R/FKXCup_R/FKOffsetRingFinger1_R/SDK1FKRingFinger1_R/SDK2FKRingFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R/FKExtraCup_R/FKCup_R/FKXCup_R/FKOffsetRingFinger1_R/SDK1FKRingFinger1_R/SDK2FKRingFinger1_R/FKExtraRingFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetCup_R/SDK1FKCup_R/FKExtraCup_R/FKCup_R/FKXCup_R/FKOffsetRingFinger1_R/SDK1FKRingFinger1_R/SDK2FKRingFinger1_R/FKExtraRingFinger1_R/FKRingFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetIndexFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetIndexFinger1_R/SDK1FKIndexFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetIndexFinger1_R/SDK1FKIndexFinger1_R/SDK2FKIndexFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetIndexFinger1_R/SDK1FKIndexFinger1_R/SDK2FKIndexFinger1_R/FKExtraIndexFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetIndexFinger1_R/SDK1FKIndexFinger1_R/SDK2FKIndexFinger1_R/FKExtraIndexFinger1_R/FKIndexFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetMiddleFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetMiddleFinger1_R/SDK1FKMiddleFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetMiddleFinger1_R/SDK1FKMiddleFinger1_R/FKExtraMiddleFinger1_R
+        weight: 1
+      - path: Main/MotionSystem/FKSystem/FKParentConstraintToWrist_R/FKOffsetMiddleFinger1_R/SDK1FKMiddleFinger1_R/FKExtraMiddleFinger1_R/FKMiddleFinger1_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
