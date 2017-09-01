@@ -25,7 +25,7 @@ public class playerHP : MonoBehaviour {
     public float maxStamina = 100f;
     public float staminaCost = 0f; // How much moves cost in stamina
     private float staminaPause; // Used to temporarily halt the regeneration of stamina
-    private float staminaGain = 0.35f;
+    private float staminaGain = 0.15f;
     public bool forwardDodge = false;
 
     // Use this for initialization

@@ -43,15 +43,12 @@ public class playerMovement : MonoBehaviour
     public Vector3 worldRotation;
 
     //Attack Information
+    [SerializeField]
     private bool attacking = false;
     private bool attackSlide;
     private int attackDamage = 40;
-    [SerializeField]
-    private int combo; // Counts our consecutive swings
-    private float comboTimer;
     private bool crAttacking = false; // Co-Routine Attacking
     public float attackStaminaCost;
-    private float attackStanceTimer;
 
     // Movement Data
     public float xSpeed = 3.0f;
@@ -67,7 +64,6 @@ public class playerMovement : MonoBehaviour
     private playerMovement movement;
 
     private bool root; // Roots the player in place
-    public bool templeActive = false;
 
     public Transform lookTarget; // This is to set a look target
     private Vector3 lookPosition;
@@ -76,15 +72,13 @@ public class playerMovement : MonoBehaviour
     //Dodge Information
     [SerializeField]
     public bool dodging = false;
-    private float dodgeDuration;
-    private float dodgeDurationTotal = 0.5f;
     private float dodgeCooldown = 0f; //Adds a cooldown for being able to dodge (Starts at 0 so you can dodge as soon as the game loads)
-    private float dodgeCooldownTotal = 2.5f; // A normal cooldown for dodging
-    private bool dodgeStill; // Variable to make a backstep when you're standing still
+    private float dodgeCooldownTotal = 2f; // A normal cooldown for dodging
     private Vector3 dodgeForward; // Stores the direction we are facing before we dodge
     private float dodgeDistance = 10f; // Since we normalize our dodge direction we need an extra force so this number dictates how far we go
     public float dodgeStaminaCost;
     private bool dodgeAnimationTrigger = false;
+    private float dodgeDuration; // Hard coding this cause C# sucks at grabbing animation length
 
     // Sounds
     public AudioClip dodgeSound1;
@@ -125,26 +119,12 @@ public class playerMovement : MonoBehaviour
         }
         else { Debug.LogError("The character needs a rigidbody"); }
 
-        //PlayerManager.Instance.RegisterPlayer(this);
-
-        dodgeDuration = dodgeDurationTotal; // Setup so our first dodge has the right amount of time
-
         attackStaminaCost = 15f;
         dodgeStaminaCost = 25f;
     }
 
     void Update()
     {
-        
-        if (attackStanceTimer > 0)
-        {
-            attackStanceTimer -= 1 * Time.deltaTime;
-            anim.SetBool("AttackStance", true);
-        }
-        else
-        {
-            anim.SetBool("AttackStance", false);
-        }
 
         if (Input.GetAxisRaw("Triggers") > 0 || Input.GetMouseButton(1) ) // LEFT TRIGGER Lock your aim position and move you slower
         {
@@ -173,15 +153,12 @@ public class playerMovement : MonoBehaviour
         if (Input.GetButtonDown("Attack") && !attacking && !dodging) // E / A Xbox Controller / Mouse 1
         {
 
-            if (combo >= 3 || GetComponent<playerHP>().currentStamina < attackStaminaCost)
+            if (GetComponent<playerHP>().currentStamina < attackStaminaCost) // If we don't have the stamina for it don't attack
             {
                 attacking = false;
             }
             else
             {
-                // Sets our character to enter an attack stance
-                attackStanceTimer += 4f;
-
                 // SFX Info
                 AudioManager.Instance.RandomSFX(attackSound1, attackSound2, attackSound3); // Randomly chooses an attack sound when we attack
 
@@ -206,30 +183,15 @@ public class playerMovement : MonoBehaviour
             }
 
         }
-
-        if (combo > 0) // If we currently have a combo going run down the timer
-        {
-            if (combo >= 3 && comboTimer > 1.5f && !attacking)
-                comboTimer = 1.5f;
-
-            comboTimer -= Time.deltaTime;
-        }
-        if (comboTimer <= 0) // If the timer hits 0 reset our combo meter
-        {
-            combo = 0;
-        }
             
 
         /////////////////////// Dodge roll ///////////////////////
-        if (Input.GetButtonDown("Dodge") && !dodging && GetComponent<playerHP>().currentStamina > dodgeStaminaCost)
+        if (Input.GetButtonDown("Dodge") && !dodging && dodgeCooldown <= 0 && GetComponent<playerHP>().currentStamina > dodgeStaminaCost)
         {
             dodging = true;
+            dodgeDuration = 0.75f;
             dodgeAnimationTrigger = true;
             dodgeCooldown = dodgeCooldownTotal;
-            if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
-            {
-                dodgeStill = true;
-            }
 
             GetComponent<playerHP>().staminaCost = 25; // Send over a stamina cost to the player HP script to track our stamina
         }
@@ -237,32 +199,11 @@ public class playerMovement : MonoBehaviour
 
         if (attacking && !crAttacking) // Countdown to turn off our attack state
         {
-            // We setup a duration based on which step in the combo you're in
-            float attackDuration;
-            if (combo <= 1)
-                attackDuration = 1.3f;
-            else
-                attackDuration = 0.8f;
-
-            // Combo info
-            combo++;
-            comboTimer += attackDuration + 1f;
+            float attackDuration = 1.5f;
 
             StartCoroutine(Attacking(attackDuration));
             crAttacking = true;
             attackSlide = true;
-        }
-
-        if (dodging) // Countdown to turn off our dodge state
-        {
-            dodgeDuration -= Time.deltaTime;
-            if (dodgeDuration <= 0f)
-            {
-                dodgeDuration = dodgeDurationTotal; // Set in variable initialization
-                dodgeStill = false; // Resets the standing still mechanic of dodging
-                dodging = false;
-            }
-            
         }
 
         if (dodgeCooldown > 0)
@@ -275,7 +216,7 @@ public class playerMovement : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (Input.GetAxis("Triggers") < 0 || templeActive == true) //RIGHT TRIGGER Roots the character in place so they can turn but not move
+        if (Input.GetAxis("Triggers") < 0) //RIGHT TRIGGER Roots the character in place so they can turn but not move
         {
             root = true;
             //Debug.Log("Triggers");
@@ -294,39 +235,30 @@ public class playerMovement : MonoBehaviour
             lastDirection = inputVector.normalized; // Makes you face the proper direction when you move/stop
         }
         else
-            anim.SetBool("Running", false); // Sets the animator to walk
+            anim.SetBool("Running", false); // Sets the animator to idle
 
 
         if (!dodging) // Stores our current forward direction and stops updating it once the dodge starts
         {
             dodgeForward = inputVector.normalized;
-            //if (dodgeForward == Vector3.zero) dodgeForward = transform.forward;
         }
         else if (dodging) // While we dodge we spin the character and slow down the movespeed
         {
-            if (attacking || dodgeStill)
+            if (dodgeAnimationTrigger == true)
             {
-                if (dodgeAnimationTrigger == true)
-                {
-                    anim.SetTrigger("JumpBack");
-                    dodgeAnimationTrigger = false;
-                }
-                dodgeDuration *= 0.1f; // Lower the duration of the dodgea to 10% since it's a backstep
-                rigidBody.velocity += this.transform.forward * Time.deltaTime * -moveSpeed * 100; // This forces us to do a backstep
+                anim.SetTrigger("RollForward");
+                dodgeAnimationTrigger = false;
             }
-            else if (!dodgeStill)
+            GetComponent<playerHP>().forwardDodge = true; // Lets the player HP script know to pause stamina regen slightly longer
+            rigidBody.velocity += (dodgeForward * dodgeDistance) * Time.deltaTime * (moveSpeed * 2f); // This is the dodge forward code. The number after movespeed is how many times faster you go than usual
+            Quaternion target = Quaternion.LookRotation(dodgeForward, Vector3.up);
+            if(dodgeDuration > 0)
             {
-                if (dodgeAnimationTrigger == true)
-                {
-                    anim.SetTrigger("RollForward");
-                    dodgeAnimationTrigger = false;
-                }
-                GetComponent<playerHP>().forwardDodge = true; // Lets the player HP script know to pause stamina regen slightly longer
-                rigidBody.velocity += (dodgeForward * dodgeDistance) * Time.deltaTime * (moveSpeed * 2f); // This is the dodge forward code. The number after movespeed is how many times faster you go than usual
-                Quaternion target = Quaternion.LookRotation(dodgeForward, Vector3.up);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, target, turnSpeed * Time.deltaTime); // Adds rotation to the dodge so you always face the way you roll
+                dodgeDuration -= Time.deltaTime;
             }
-            
+            else
+                dodging = false;
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, target, turnSpeed * Time.deltaTime); // Adds rotation to the dodge so you always face the way you roll
         }      
 
         if (!root && !attacking && !dodging)
@@ -337,18 +269,8 @@ public class playerMovement : MonoBehaviour
 
         if (attacking && attackSlide)// Gives you a slight slide forward on attack
         {
-            if (combo == 1)
-            {
-                rigidBody.velocity += this.transform.forward * 0.5f; // Slides you forward while you attack
-                anim.SetBool("Attack1", true);
-            }
-            else if (combo == 2)
-            {
-                rigidBody.velocity += this.transform.forward * 0.4f; // Slides you forward while you attack on your second swing
-                anim.SetBool("Attack2", true);
-            }
-            else if (combo == 3)
-                anim.SetBool("Attack3", true);
+            rigidBody.velocity += this.transform.forward * 0.3f; // Slides you forward while you attack
+            anim.SetBool("Attacking", true);
         }
 
         // Code to make the scarf wave around
@@ -383,7 +305,7 @@ public class playerMovement : MonoBehaviour
             bigScarf.GetComponent<ObiAerodynamicConstraints>().PushDataToSolver(new ObiSolverData(ObiSolverData.AerodynamicConstraintsData.WIND));
             littleScarf.GetComponent<ObiAerodynamicConstraints>().windVector = new Vector3(scarfX, 0f, scarfZ);
             littleScarf.GetComponent<ObiAerodynamicConstraints>().PushDataToSolver(new ObiSolverData(ObiSolverData.AerodynamicConstraintsData.WIND));
-        }
+        } // SCARF FINISHED
 
     }
 
@@ -406,9 +328,7 @@ public class playerMovement : MonoBehaviour
         // Tells the rest of the code the attack is done
         attacking = false;
         crAttacking = false;
-        anim.SetBool("Attack1", false);
-        anim.SetBool("Attack2", false);
-        anim.SetBool("Attack3", false);
+        anim.SetBool("Attacking", false);
     }
 
     public void HitboxSpawn()
@@ -426,9 +346,10 @@ public class playerMovement : MonoBehaviour
         playerHitbox.GetComponent<hitbox>().distance = spawnDistance; // Tells the box how far it should stay and lets us edit it in this script
     }
 
-    // Boss Room Portal Collision
+    // Collision check
     void OnTriggerEnter(Collider col)
     {
+        //Boss Room Portal Teleport
         if (col.gameObject.tag == "BossPortal")
         {
             // Teleport to the boss room!

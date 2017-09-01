@@ -10871,7 +10871,6 @@ MonoBehaviour:
   anim: {fileID: 95895737035385980}
   attackHitBox: {fileID: 174752, guid: 85227231c05d0764380a4d4eba819350, type: 2}
   worldRotation: {x: 0, y: 135, z: 0}
-  combo: 0
   attackStaminaCost: 0
   xSpeed: 12
   zSpeed: 8
