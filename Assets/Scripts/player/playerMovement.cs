@@ -51,10 +51,10 @@ public class playerMovement : MonoBehaviour
     public float attackStaminaCost;
 
     // Movement Data
-    public float xSpeed = 3.0f;
-    public float zSpeed = 5.0f;
+    public float xSpeed;
+    public float zSpeed;
     public float turnSpeed = 100f;
-    public float moveSpeed = 10f;
+    public float moveSpeed;
     public Vector3 lastDirection { get; private set; }
     private float moveUp;
     private float moveDown;
@@ -224,7 +224,7 @@ public class playerMovement : MonoBehaviour
         else { root = false; }
 
         Vector3 inputVector = new Vector3();
-        inputVector.x = Input.GetAxis("Vertical") * -1f * xSpeed;
+        inputVector.x = Input.GetAxis("Vertical") * -1f * xSpeed; // -1f or else your inputs will go the wrong direction
         inputVector.z = Input.GetAxis("Horizontal") * zSpeed;
         inputVector = Quaternion.Euler(worldRotation) * inputVector; // Rotates the inputs to the proper directions
 
@@ -250,7 +250,7 @@ public class playerMovement : MonoBehaviour
                 dodgeAnimationTrigger = false;
             }
             GetComponent<playerHP>().forwardDodge = true; // Lets the player HP script know to pause stamina regen slightly longer
-            rigidBody.velocity += (dodgeForward * dodgeDistance) * Time.deltaTime * (moveSpeed * 2f); // This is the dodge forward code. The number after movespeed is how many times faster you go than usual
+            rigidBody.velocity += (dodgeForward * dodgeDistance) * Time.deltaTime * (moveSpeed * 1.6f); // This is the dodge forward code. The number after movespeed is how many times faster you go than usual
             Quaternion target = Quaternion.LookRotation(dodgeForward, Vector3.up);
             if(dodgeDuration > 0)
             {
@@ -261,9 +261,10 @@ public class playerMovement : MonoBehaviour
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, target, turnSpeed * Time.deltaTime); // Adds rotation to the dodge so you always face the way you roll
         }      
 
+        // If you're capable it's time to Move!!
         if (!root && !attacking && !dodging)
         {
-            rigidBody.velocity += inputVector * Time.deltaTime * moveSpeed;
+            rigidBody.velocity += inputVector.normalized * Time.deltaTime * (moveSpeed*10f); // x10 because of normalizing the input vector
         }
             
 
