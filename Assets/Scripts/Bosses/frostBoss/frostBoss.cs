@@ -11,15 +11,38 @@ public class frostBoss : MonoBehaviour {
 
     // Various Attacks
     public GameObject frostBlast;
+    
+    //Boss Mesh Variables
+    public Renderer bossMesh;
+    private string meshDirection;
+    private float meshX;
+    private float meshY;
 
     // Use this for initialization
     void Start () {
         attackTimerMax = attackTimer;
-
+        meshDirection = "up";
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (meshDirection == "up")
+        {
+            if (meshX > 10)
+                meshDirection = "down";
+
+            meshX += 0.01f;
+            meshY += 0.01f;
+        }
+        else if (meshDirection == "down")
+        {
+            if (meshX <= 0)
+                meshDirection = "up";
+            meshX -= 0.01f;
+            meshY -= 0.01f;
+        }
+            
+        bossMesh.material.mainTextureScale = new Vector2(meshX, 1);
         if (attackTimer <= 0)
         {
             // Rolls a dice to pick his next attack.

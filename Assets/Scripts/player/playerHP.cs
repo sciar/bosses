@@ -5,13 +5,14 @@ using System.Collections;
 public class playerHP : MonoBehaviour {
     // http://docs.unity3d.com/ScriptReference/MonoBehaviour.html This is where you go to find all of these
 
+    [Header("Health")]
     [SerializeField]
     private Slider slider; // This is the variable to access the slider attached to the screen canvas (Attach in Unity UI)
     public GameObject hpText; // This grabs the entire hpText component
     private Text hpUpdate; // This is the text info from the other object
 
     public float currentHealth;
-    public float maxHealth = 100f;
+    public float maxHealth; // -SET IN INSPECTOR
 
     // Hit invincibility and flashing
     [SerializeField]
@@ -20,6 +21,7 @@ public class playerHP : MonoBehaviour {
     private Color normalColor;
 
     // Stamina
+    [Header("Stamina")]
     public Slider staminaSlider;
     public float currentStamina;
     public float maxStamina = 100f;
@@ -28,18 +30,33 @@ public class playerHP : MonoBehaviour {
     private float staminaGain = 0.15f;
     public bool forwardDodge = false;
 
+    [Header("Shield")]
+    public Slider shieldSlider;
+    public GameObject shieldText; // This grabs the entire shieldText component
+    public float shieldValueCurrent;
+    public GameObject shieldUIContainer;
+    [SerializeField]
+    private float shieldValueTotal; // We need this cause I'm tired so fuck
+    [SerializeField]
+    private Text shieldUpdate; // This is the text info from the other object
+
     // Use this for initialization
     private void Start()
     {
         currentHealth = maxHealth;
         hpUpdate = hpText.GetComponent<Text>();
+        shieldUpdate = shieldText.GetComponent<Text>();
         currentStamina = maxStamina;
-
+        shieldUIContainer.SetActive(false); // Makes sure this is off at first
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (shieldValueCurrent <= 0 && GetComponent<playerMovement>().frostShieldDuration > 0)
+        {// If the shield is depleted but still on we tell the playerMovement script to turn it off
+            GetComponent<playerMovement>().frostShieldDuration = 0;
+        }
 
         if (currentHealth <= 0)
         {
@@ -89,12 +106,55 @@ public class playerHP : MonoBehaviour {
         {
             //StartCoroutine(Flasher()); // Makes us blink
 
-            currentHealth -= damage;
-            setHealth();
-            hitInvincibility = 1f;
-            Debug.LogError("Player took damage");
+            // Store the shields value
+            shieldValueTotal = shieldValueCurrent;
+            // Remove damage from the shield
+            shieldValueCurrent -= damage;
+            damage -= shieldValueTotal; // Then we remove the value of the shield from the damage before calculating the damage to player
+            // If damage is still left over we strip it from the health
+            if (damage > 0)
+            {
+                currentHealth -= damage;
+                hitInvincibility = 1f;
+            }
+            setHealth(); // Set the health regardless cause this will update the UI
+
+            // Set the shield values if they're above 0
+            if (shieldValueCurrent <= 0) { }
+            else
+            {
+                frostShieldUpdate(); // Updates the values **NOT WORKING FUCK IF I KNOW WHY**
+            } 
         }
         
+    }
+
+    public void frostShield(float strength)
+    {
+        // Set our sheild values to whatever this boost gave them
+        shieldValueTotal = strength;
+        shieldValueCurrent = strength;
+        // Set the max value to whatever the shields total value currently is (The last value sent as the max)
+        shieldSlider.maxValue = shieldValueTotal;
+        frostShieldUpdate();
+    }
+
+    private void frostShieldUpdate()
+    {
+        if (shieldValueTotal == 0)
+        {
+            shieldUIContainer.SetActive(false);
+        }
+        else
+        {
+            shieldUIContainer.SetActive(true);
+            //Debug.LogError("Current Value: " + shieldValueCurrent);
+            //Debug.LogError("Total Value: " + shieldValueTotal);
+            //Debug.LogError("Percentage it should show:" + Mathf.RoundToInt((shieldValueCurrent / shieldValueTotal) * 100));
+            shieldSlider.value = (shieldValueCurrent / shieldValueTotal )* 100;
+            //shieldSlider.value = Mathf.RoundToInt((shieldValueCurrent / shieldValueTotal) * 100);
+            shieldUpdate.text = Mathf.CeilToInt(shieldValueCurrent).ToString() + "/ " + Mathf.FloorToInt(shieldValueTotal).ToString();
+        }
     }
 
     public void setHealth()//int damageValue

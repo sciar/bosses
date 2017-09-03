@@ -8,11 +8,11 @@ public class damagePlayer : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.LogError("COLLIDED WITH: " + col.name);
+        //Debug.LogError("COLLIDED WITH: " + col.name);
         if (col.gameObject.tag == "Player")
         {
             col.gameObject.GetComponent<playerHP>().takeDamage(attackDamage);
-            Debug.LogError("Damage Applied");
+            Debug.LogError("Damage Applied: " + attackDamage);
 
         }
     }

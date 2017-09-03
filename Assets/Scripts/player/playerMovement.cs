@@ -38,19 +38,34 @@ public class playerMovement : MonoBehaviour
 
     Rigidbody rigidBody;
     // Attack Data
-    private Vector3 currentLocation;
-    public GameObject attackHitBox; // Spawns the hitbox well use for colliding with an enemy
-    public Vector3 worldRotation;
+    private GameObject attackHitBox; // Spawns the hitbox well use for colliding with an enemy
+    [HideInInspector]
+    public Vector3 worldRotation; // MUST REMAIN PUBLIC Ref: #QEWR
 
-    //Attack Information
+    //Attack Information - VALUES SET IN INSPECTOR
+    [Header("Attack Information")]
     [SerializeField]
     private bool attacking = false;
     private bool attackSlide;
-    private int attackDamage = 40;
+    public int attackDamage;
     private bool crAttacking = false; // Co-Routine Attacking
     public float attackStaminaCost;
 
+    //Frost Shield - VALUES SET IN INSPECTOR
+    [Header("Frost Shield Skill")]
+    public float frostShieldValue;
+    public float frostShieldDuration;
+    private float frostShieldDurationTotal;
+    public float frostShieldStaminaCost;
+
+    //Frost Shot - Spawns a new prefab
+    [Header("Frost Shot Skill")]
+    public GameObject frostShot;
+    public float frostShotDamage;
+    public float frostShotSpeed;
+
     // Movement Data
+    [Header("Movement Data")]
     public float xSpeed;
     public float zSpeed;
     public float turnSpeed = 100f;
@@ -64,13 +79,14 @@ public class playerMovement : MonoBehaviour
     private playerMovement movement;
 
     private bool root; // Roots the player in place
-
+    [HideInInspector]
     public Transform lookTarget; // This is to set a look target
     private Vector3 lookPosition;
     private bool leftTrigger; // This is the variable well use to lock your facing direction so you can move and attack in the same direction
 
-    //Dodge Information
+    //Dodge Information - VALUES SET IN INSPECTOR
     [SerializeField]
+    [Header("Dodging Data")]
     public bool dodging = false;
     private float dodgeCooldown = 0f; //Adds a cooldown for being able to dodge (Starts at 0 so you can dodge as soon as the game loads)
     private float dodgeCooldownTotal = 2f; // A normal cooldown for dodging
@@ -81,6 +97,7 @@ public class playerMovement : MonoBehaviour
     private float dodgeDuration; // Hard coding this cause C# sucks at grabbing animation length
 
     // Sounds
+    [Header("Audio")]
     public AudioClip dodgeSound1;
     public AudioClip dodgeSound2;
     public AudioClip attackSound1;
@@ -88,9 +105,13 @@ public class playerMovement : MonoBehaviour
     public AudioClip attackSound3;
 
     // Scarf
+    [Header("Cosmetics")]
     public GameObject bigScarf;
     public GameObject littleScarf;
     private Vector3 scarfForward; // stores information for which way the scarf should blow when you stop moving
+
+    [Header("GameObjects")]
+    public GameObject frostShield;
 
     public void Init(playerMovement movement)
     {
@@ -112,15 +133,16 @@ public class playerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Frost Shield Startup
+        frostShield.SetActive(false);
+        frostShieldDurationTotal = frostShieldDuration;
+
         // Sets up our Rigidbody
         if (GetComponent<Rigidbody>())
         {
             rigidBody = GetComponent<Rigidbody>();
         }
         else { Debug.LogError("The character needs a rigidbody"); }
-
-        attackStaminaCost = 15f;
-        dodgeStaminaCost = 25f;
     }
 
     void Update()
@@ -135,7 +157,8 @@ public class playerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("LBumper"))
         {
-            //ATM DOES NOTHING
+            //castFrostShield();
+            castFrostShot();
         }
 
         // This code will make the character face the direction they're moving
@@ -161,27 +184,22 @@ public class playerMovement : MonoBehaviour
             {
                 // SFX Info
                 AudioManager.Instance.RandomSFX(attackSound1, attackSound2, attackSound3); // Randomly chooses an attack sound when we attack
-
-                // Attack code removed here
-                /*/Quaternion playerRotation = this.transform.rotation; // gives a variable to store the current rotation which we currently don't use
-                Vector3 playerPosition = this.transform.position;
-                Vector3 playerDirection = this.transform.forward;
-
-                // How far away to spawn the hitbox
-                float spawnDistance = 2;
-                Vector3 spawnPos = playerPosition + playerDirection * spawnDistance;
-
-                GameObject playerHitbox = (GameObject)Instantiate(attackHitBox, spawnPos, transform.rotation); // Name of object spawned, position it spawns, Quaternion.Identity takes rotate value from this object
-                playerHitbox.GetComponent<hitbox>().damageValue = attackDamage; // Sends this var to the latest hitbox
-                playerHitbox.GetComponent<hitbox>().player = this.gameObject; // Sets a variable to track the player in the hitbox
-                playerHitbox.GetComponent<hitbox>().playerDirection = playerDirection; // Passes the direction variable to the hitbox
-                playerHitbox.GetComponent<hitbox>().distance = spawnDistance; // Tells the box how far it should stay and lets us edit it in this script
-                */
-
                 attacking = true;
                 GetComponent<playerHP>().staminaCost = 15; // Send over a stamina cost to the player HP script to track our stamina
             }
 
+        }
+
+        // Frost Shield
+        if (frostShield.activeSelf == true) // If it's on we run out the time, if it's out of time we turn it off
+        {
+            if (frostShieldDuration > 0)
+                frostShieldDuration -= Time.deltaTime;
+            else
+            {
+                frostShield.SetActive(false);
+                GetComponent<playerHP>().frostShield(0); // Turn off the shield on the player HP script
+            }
         }
             
 
@@ -226,7 +244,7 @@ public class playerMovement : MonoBehaviour
         Vector3 inputVector = new Vector3();
         inputVector.x = Input.GetAxis("Vertical") * -1f * xSpeed; // -1f or else your inputs will go the wrong direction
         inputVector.z = Input.GetAxis("Horizontal") * zSpeed;
-        inputVector = Quaternion.Euler(worldRotation) * inputVector; // Rotates the inputs to the proper directions
+        inputVector = Quaternion.Euler(worldRotation) * inputVector; // Rotates the inputs to the proper directions #QEWR
 
 
         if (inputVector != Vector3.zero)
@@ -345,6 +363,37 @@ public class playerMovement : MonoBehaviour
         playerHitbox.GetComponent<hitbox>().player = this.gameObject; // Sets a variable to track the player in the hitbox
         playerHitbox.GetComponent<hitbox>().playerDirection = playerDirection; // Passes the direction variable to the hitbox
         playerHitbox.GetComponent<hitbox>().distance = spawnDistance; // Tells the box how far it should stay and lets us edit it in this script
+    }
+
+    void castFrostShot()
+    {
+        Vector3 playerPosition = this.transform.position;
+        Vector3 playerDirection = this.transform.forward;
+        // How far away to spawn the hitbox
+        float spawnDistance = 1;
+        Vector3 spawnPos = playerPosition + playerDirection * spawnDistance;
+
+        GameObject playerFrostShot = (GameObject)Instantiate(frostShot, spawnPos, transform.rotation); // Name of object spawned, position it spawns, Quaternion.Identity takes rotate value from this object
+        playerFrostShot.GetComponent<frostShot>().damageValue = frostShotDamage; // Sends the Damage value to the attack
+        playerFrostShot.GetComponent<frostShot>().shotSpeed = frostShotSpeed; // Sends the speed value to the attack
+    }
+
+    void castFrostShield()
+    {
+        if (frostShield.activeSelf == false && GetComponent<playerHP>().currentStamina > frostShieldStaminaCost)
+        {
+            // Turn it on!
+            frostShield.SetActive(true);
+            //FrostShield Cooldown
+            frostShieldDuration = frostShieldDurationTotal;
+            //Costs huge stamina
+            GetComponent<playerHP>().staminaCost = frostShieldStaminaCost;
+            GetComponent<playerHP>().frostShield(frostShieldValue);
+        }
+        else
+        {
+            // Don't use it since it's already on or you can't afford it
+        }
     }
 
     // Collision check
