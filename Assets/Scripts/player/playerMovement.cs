@@ -350,6 +350,7 @@ public class playerMovement : MonoBehaviour
         anim.SetBool("Attacking", false);
     }
 
+    /* - DEPRECATED OLD HITBOX SYSTEM
     public void HitboxSpawn()
     {
         Vector3 playerPosition = this.transform.position;
@@ -363,7 +364,7 @@ public class playerMovement : MonoBehaviour
         playerHitbox.GetComponent<hitbox>().player = this.gameObject; // Sets a variable to track the player in the hitbox
         playerHitbox.GetComponent<hitbox>().playerDirection = playerDirection; // Passes the direction variable to the hitbox
         playerHitbox.GetComponent<hitbox>().distance = spawnDistance; // Tells the box how far it should stay and lets us edit it in this script
-    }
+    }*/
 
     void castFrostShot()
     {

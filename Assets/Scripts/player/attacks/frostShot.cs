@@ -11,14 +11,20 @@ public class frostShot : MonoBehaviour {
     public float damageValue;
     public float shotSpeed;
 
-    private Rigidbody rigidbody;
+    private Rigidbody rigidBody;
 
     void Awake () {
         //Physics.IgnoreCollision(clone.collider, collider)
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    private void Start()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+        this.GetComponent<damageBadguy>().attackDamage = damageValue; // Sends this attacks damage value to the attack damage script
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
         if (duration > 0)
         {
             duration -= Time.deltaTime;
@@ -26,7 +32,7 @@ public class frostShot : MonoBehaviour {
         else
             Destroy(this.gameObject);
 
-        rigidbody.AddForce(transform.forward * shotSpeed);
-        this.transform.position = playerDirection * shotSpeed;
+        rigidBody.AddForce(transform.forward * shotSpeed);
+        //this.transform.position = playerDirection * shotSpeed;
     }
 }

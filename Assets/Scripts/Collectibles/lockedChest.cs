@@ -7,17 +7,17 @@ public class lockedChest : MonoBehaviour
     private float itemGrabTimer = 0.5f; // How long before you can get the powerup that spawns
     private bool grabTimerCountdown = false;
     public bool openChest = false;
-    public bool gotItem = false;
     private bool spawnOnce = false; // makes sure we only spawn one powerup
     public GameObject chestLid;
 
     private GameObject newItem;
 
     // List of all available powerups
+    [Header("Potential Powerups")]
     public GameObject HPMax;
     public GameObject StaminaMax;
 
-    List<GameObject> powerupList = new List<GameObject>(); // Creates a list where we store all the enemies in the game
+    List<GameObject> powerupList = new List<GameObject>(); // Creates a list where we store all the power ups in the game
 
 
     void Update()
@@ -51,10 +51,19 @@ public class lockedChest : MonoBehaviour
             }
             else if (itemGrabTimer <= 0)
             {
-                gotItem = true; // Sets up the component that item scripts will call
+                //col.GetComponent<powerup>()
+                //gotItem = true; // Sets up the component that item scripts will call
                 grabTimerCountdown = false; // Resets the cooldown so it can be used again
                 itemGrabTimer = 1f; // Resets the timer so it can be countdown again
-
+                if (newItem.name == "HPMax(Clone)")
+                {
+                    col.GetComponent<playerHP>().maxHealth += 10f;
+                    col.GetComponent<playerHP>().setHealth();
+                }
+                else if (newItem.name == "StaminaMax(Clone)")
+                {
+                    Debug.LogError("Stamina PICKED UP");
+                }
                 //newItem.GetComponent<HPMax>().gotItem = true; // Sets the child object script but wont work on dynamic items
                 //Destroy(newItem);
             }
