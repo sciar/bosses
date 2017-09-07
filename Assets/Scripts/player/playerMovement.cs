@@ -157,8 +157,7 @@ public class playerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("LBumper"))
         {
-            //castFrostShield();
-            castFrostShot();
+            castFrostShield();
         }
 
         // This code will make the character face the direction they're moving
@@ -217,9 +216,9 @@ public class playerMovement : MonoBehaviour
 
         if (attacking && !crAttacking) // Countdown to turn off our attack state
         {
-            float attackDuration = 1.5f;
+            float attackDuration = 1.2f;
 
-            StartCoroutine(Attacking(attackDuration));
+            StartCoroutine(AttackingFrostShot(attackDuration));
             crAttacking = true;
             attackSlide = true;
         }
@@ -284,13 +283,6 @@ public class playerMovement : MonoBehaviour
         {
             rigidBody.velocity += inputVector.normalized * Time.deltaTime * (moveSpeed*10f); // x10 because of normalizing the input vector
         }
-            
-
-        if (attacking && attackSlide)// Gives you a slight slide forward on attack
-        {
-            rigidBody.velocity += this.transform.forward * 0.3f; // Slides you forward while you attack
-            anim.SetBool("Attacking", true);
-        }
 
         // Code to make the scarf wave around
         if (inputVector != Vector3.zero)
@@ -328,19 +320,13 @@ public class playerMovement : MonoBehaviour
 
     }
 
-    IEnumerator Attacking(float duration)
+    IEnumerator Attacking(float duration) // Lets us set the character in an attack for X time
     {
         float timer = duration;  // Takes the duration when the CR is called
-        bool slideEndOnce = false;
-
+        
         while (timer > 0) // As long as the duration is still going keep repeating the code
         {
-            if ((timer < duration * .2) && !slideEndOnce) // Checks if less than 20% of the duration is left
-            {
-                slideEndOnce = true;
-                attackSlide = false;
-            }
-                
+            anim.SetBool("Attacking", true);
             timer -= Time.deltaTime;
             yield return new WaitForEndOfFrame();   
         }
@@ -350,21 +336,27 @@ public class playerMovement : MonoBehaviour
         anim.SetBool("Attacking", false);
     }
 
-    /* - DEPRECATED OLD HITBOX SYSTEM
-    public void HitboxSpawn()
+    IEnumerator AttackingFrostShot(float duration) // Does the timer based portion of the frost shot
     {
-        Vector3 playerPosition = this.transform.position;
-        Vector3 playerDirection = this.transform.forward;
-        // How far away to spawn the hitbox
-        float spawnDistance = 2;
-        Vector3 spawnPos = playerPosition + playerDirection * spawnDistance;
+        float timer = duration;  // Takes the duration when the CR is called
+        bool shot = false;
 
-        GameObject playerHitbox = (GameObject)Instantiate(attackHitBox, spawnPos, transform.rotation); // Name of object spawned, position it spawns, Quaternion.Identity takes rotate value from this object
-        playerHitbox.GetComponent<hitbox>().damageValue = attackDamage; // Sends this var to the latest hitbox
-        playerHitbox.GetComponent<hitbox>().player = this.gameObject; // Sets a variable to track the player in the hitbox
-        playerHitbox.GetComponent<hitbox>().playerDirection = playerDirection; // Passes the direction variable to the hitbox
-        playerHitbox.GetComponent<hitbox>().distance = spawnDistance; // Tells the box how far it should stay and lets us edit it in this script
-    }*/
+        while (timer > 0) // As long as the duration is still going keep repeating the code
+        {
+            anim.SetBool("Attacking", true);
+            if (((timer < duration * 0.2f)) && shot == false)
+            {
+                shot = true; // We only want one!
+                castFrostShot();
+            }
+            timer -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        // Tells the rest of the code the attack is done
+        attacking = false;
+        crAttacking = false;
+        anim.SetBool("Attacking", false);
+    }
 
     void castFrostShot()
     {

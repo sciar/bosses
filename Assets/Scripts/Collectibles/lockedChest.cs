@@ -65,7 +65,7 @@ public class lockedChest : MonoBehaviour
                     Debug.LogError("Stamina PICKED UP");
                 }
                 //newItem.GetComponent<HPMax>().gotItem = true; // Sets the child object script but wont work on dynamic items
-                //Destroy(newItem);
+               Destroy(newItem);
             }
             
         }

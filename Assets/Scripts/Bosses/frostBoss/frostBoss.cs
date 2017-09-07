@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class frostBoss : MonoBehaviour {
 
+    // Movement
+    [Header("Mobility Variables")]
+    public float moveSpeed;
+    public Transform player;
+    public float minDistance;
+    public float maxDistance;
+
     // Decision Tree
     private float attackTimer = 4f;
     private float attackTimerMax;
     private int attackSelection;
 
     // Various Attacks
+    [Header("Attack Types")]
     public GameObject frostBlast;
     
     //Boss Mesh Variables
@@ -17,6 +25,10 @@ public class frostBoss : MonoBehaviour {
     private string meshDirection;
     private float meshX;
     private float meshY;
+
+    //Animation Vars
+    public Animator anim;
+    private bool spawnFinished;
 
     // Use this for initialization
     void Start () {
@@ -26,6 +38,8 @@ public class frostBoss : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        // Makes his mesh do that cool woshy thing
         if (meshDirection == "up")
         {
             if (meshX > 10)
@@ -41,8 +55,9 @@ public class frostBoss : MonoBehaviour {
             meshX -= 0.01f;
             meshY -= 0.01f;
         }
-            
         bossMesh.material.mainTextureScale = new Vector2(meshX, 1);
+
+
         if (attackTimer <= 0)
         {
             // Rolls a dice to pick his next attack.
@@ -63,5 +78,25 @@ public class frostBoss : MonoBehaviour {
             attackTimer -= Time.deltaTime;
 
         }
+    }
+
+    private void FixedUpdate()
+    { // Friday do this: https://docs.unity3d.com/Manual/nav-CouplingAnimationAndNavigation.html
+        if (Vector3.Distance(transform.position, player.position) >= minDistance)
+        {
+            anim.SetTrigger("Walk");
+        }
+        else
+        {
+            anim.SetTrigger("Idle");
+        }
+
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("creature1walkforward"))
+        {
+            // Avoid any reload. For Sub States Use this: "Sub-StateMachine_Name"."State_Name".
+            transform.LookAt(player);
+            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        }
+        
     }
 }
