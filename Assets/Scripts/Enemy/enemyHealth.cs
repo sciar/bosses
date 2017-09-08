@@ -4,8 +4,14 @@ using System.Collections;
 
 public class enemyHealth : MonoBehaviour {
 
+    [Header("Health")]
     public float currentHealth;
     public float maxHealth;
+    [Header("Animator")]
+    public Animator anim;
+
+    private bool dead;
+
 
     // Use this for initialization
     void Start()
@@ -21,9 +27,13 @@ public class enemyHealth : MonoBehaviour {
 
     public void takeDamage(float amount)
     {
-        currentHealth -= amount;
-        GameObject.Find("EnemyHP").GetComponent<enemyHealthUI>().showEnemyHealth(currentHealth, maxHealth); // Sets the fade timer to max every time we hit so the health bar will remain on screen
-        if (currentHealth <= 0)
+        if (currentHealth > 0)
+        {
+            anim.SetTrigger("Hit");
+            currentHealth -= amount;
+            GameObject.Find("EnemyHP").GetComponent<enemyHealthUI>().showEnemyHealth(currentHealth, maxHealth); // Sets the fade timer to max every time we hit so the health bar will remain on screen
+        }
+        else if (currentHealth <= 0 && dead == false)
             OnDeath(); // If we're ded we die.
     }
 
@@ -35,6 +45,8 @@ public class enemyHealth : MonoBehaviour {
     private void OnDeath()
     {
         Debug.LogError("Enemy dead! Good jorb you win");
+        anim.SetTrigger("Die");
+        dead = true; // So we only die once!
     }
 
 }

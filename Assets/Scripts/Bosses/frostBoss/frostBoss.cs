@@ -7,6 +7,7 @@ public class frostBoss : MonoBehaviour {
     // Movement
     [Header("Mobility Variables")]
     public float moveSpeed;
+    public float turnSpeed;
     public Transform player;
     public float minDistance;
     public float maxDistance;
@@ -19,6 +20,10 @@ public class frostBoss : MonoBehaviour {
     // Various Attacks
     [Header("Attack Types")]
     public GameObject frostBlast;
+
+    public GameObject pulse;
+    public float pulseTimer;
+    private float pulseTimerMax;
     
     //Boss Mesh Variables
     public Renderer bossMesh;
@@ -34,6 +39,8 @@ public class frostBoss : MonoBehaviour {
     void Start () {
         attackTimerMax = attackTimer;
         meshDirection = "up";
+
+        pulseTimerMax = pulseTimer;
 	}
 	
 	// Update is called once per frame
@@ -70,7 +77,7 @@ public class frostBoss : MonoBehaviour {
             if (attackSelection == 1)
             {
                 // Frost Blast
-                GameObject currentBlast = (GameObject)Instantiate(frostBlast, new Vector3 (pos.x,1,pos.z), transform.rotation);
+                GameObject currentBlast = (GameObject)Instantiate(frostBlast, new Vector3(pos.x, 1, pos.z), transform.rotation);
             }
         }
         else
@@ -78,24 +85,45 @@ public class frostBoss : MonoBehaviour {
             attackTimer -= Time.deltaTime;
 
         }
+
+        // AOE PULSE ATTACK
+        if (pulseTimer <= 0)
+        {
+            GameObject pulseGo = (GameObject)Instantiate(pulse, new Vector3(transform.position.x, 0.5f, transform.position.z), transform.rotation);
+            pulseGo.transform.parent = this.transform;
+            pulseTimer = pulseTimerMax;
+        }
+        else pulseTimer -= Time.deltaTime;
     }
 
     private void FixedUpdate()
     { // Friday do this: https://docs.unity3d.com/Manual/nav-CouplingAnimationAndNavigation.html
         if (Vector3.Distance(transform.position, player.position) >= minDistance)
         {
-            anim.SetTrigger("Walk");
+            anim.SetBool("Walk", true);
+            anim.SetBool("Idle", false);
         }
         else
         {
-            anim.SetTrigger("Idle");
+            anim.SetBool("Idle", true);
+            anim.SetBool("Walk", false);
         }
 
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("creature1walkforward"))
         {
             // Avoid any reload. For Sub States Use this: "Sub-StateMachine_Name"."State_Name".
-            transform.LookAt(player);
-            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+            //transform.LookAt(player);
+
+            // All this shit to walk forward towards the player
+            var lookPos = player.position - transform.position; // Gets the players position and subtracts our current position
+            lookPos.y = 0; // Removes the Y component so the boss doesn't tilt upwards if you're close to him
+            var rotation = Quaternion.LookRotation(lookPos); // Sets a variatble for the Slerp
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turnSpeed);
+            // Turning Complete
+            Vector3 horizontalForward = transform.forward; // Set a variable to hold the forward motion
+            horizontalForward.y = 0f; // Remove any potential to rise on the Y plane
+            horizontalForward.Normalize(); // Normalize it (not sure why but fuck it)
+            transform.position += horizontalForward* moveSpeed * Time.deltaTime; // Then we move forward at our move speed
         }
         
     }

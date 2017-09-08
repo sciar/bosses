@@ -63,6 +63,8 @@ public class playerMovement : MonoBehaviour
     public GameObject frostShot;
     public float frostShotDamage;
     public float frostShotSpeed;
+    public float frostShotCooldown;
+    private float frostShotCooldownMax;
 
     // Movement Data
     [Header("Movement Data")]
@@ -137,6 +139,9 @@ public class playerMovement : MonoBehaviour
         frostShield.SetActive(false);
         frostShieldDurationTotal = frostShieldDuration;
 
+        // Frost Shot Cooldown
+        frostShotCooldownMax = frostShotCooldown; // Sets our rest value for the timer
+
         // Sets up our Rigidbody
         if (GetComponent<Rigidbody>())
         {
@@ -175,7 +180,7 @@ public class playerMovement : MonoBehaviour
         if (Input.GetButtonDown("Attack") && !attacking && !dodging) // E / A Xbox Controller / Mouse 1
         {
 
-            if (GetComponent<playerHP>().currentStamina < attackStaminaCost) // If we don't have the stamina for it don't attack
+            if (GetComponent<playerHP>().currentStamina < attackStaminaCost || frostShotCooldown > 0) // If we don't have the stamina for it don't attack
             {
                 attacking = false;
             }
@@ -188,6 +193,8 @@ public class playerMovement : MonoBehaviour
             }
 
         }
+        if (frostShotCooldown > 0)
+            frostShotCooldown -= Time.deltaTime;
 
         // Frost Shield
         if (frostShield.activeSelf == true) // If it's on we run out the time, if it's out of time we turn it off
@@ -217,7 +224,6 @@ public class playerMovement : MonoBehaviour
         if (attacking && !crAttacking) // Countdown to turn off our attack state
         {
             float attackDuration = 1.2f;
-
             StartCoroutine(AttackingFrostShot(attackDuration));
             crAttacking = true;
             attackSlide = true;
@@ -333,6 +339,7 @@ public class playerMovement : MonoBehaviour
         // Tells the rest of the code the attack is done
         attacking = false;
         crAttacking = false;
+        frostShotCooldown = frostShotCooldownMax;
         anim.SetBool("Attacking", false);
     }
 
