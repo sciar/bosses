@@ -40,7 +40,11 @@ public class pbaoeBlast : MonoBehaviour
         {
             cyl1.SetActive(true);
             if (cyl1.transform.localScale.x < cyl1MaxSize.x) // Only grow if it's not max size yet
+            {
                 cyl1.transform.localScale += new Vector3(growthRate, 0, growthRate);
+                cyl1.transform.Rotate(0, growthRate*7, 0); // Gives it a sweet spin
+            }
+                
             else
                 reverse = true;
             if (cyl1.transform.localScale.y < cyl1MaxSize.y) // Same for Y scaling
@@ -49,6 +53,7 @@ public class pbaoeBlast : MonoBehaviour
         else if (reverse)
         {
             cyl1.transform.localScale -= new Vector3(growthRate, 0, growthRate);
+            cyl1.transform.Rotate(0, -growthRate * 7, 0); // Gives it a sweet spin
             if (cyl1.transform.localScale.y > 0)
                 cyl1.transform.localScale -= new Vector3(0, growthRate * 0.1f, 0);
             if (cyl1.transform.localScale.x < 0)
