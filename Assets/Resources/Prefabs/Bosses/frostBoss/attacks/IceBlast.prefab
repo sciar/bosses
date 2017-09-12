@@ -171,6 +171,8 @@ MonoBehaviour:
   section: location
   damagePart: {fileID: 1453245005763562}
   indicator: {fileID: 1121408240912598}
+  blastSize: 0
+  blastGrowSpeed: 0
 --- !u!114 &114916125582742398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +188,8 @@ MonoBehaviour:
   section: damage
   damagePart: {fileID: 1453245005763562}
   indicator: {fileID: 1121408240912598}
+  blastSize: 15
+  blastGrowSpeed: 0.6
 --- !u!135 &135515859216061300
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -255,7 +259,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -639669537
+  randomSeed: -931891638
   InitialModule:
     serializedVersion: 3
     enabled: 1

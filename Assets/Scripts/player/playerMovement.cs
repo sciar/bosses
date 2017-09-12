@@ -58,13 +58,13 @@ public class playerMovement : MonoBehaviour
     private float frostShieldDurationTotal;
     public float frostShieldStaminaCost;
 
-    //Frost Shot - Spawns a new prefab
-    [Header("Frost Shot Skill")]
-    public GameObject frostShot;
-    public float frostShotDamage;
-    public float frostShotSpeed;
-    public float frostShotCooldown;
-    private float frostShotCooldownMax;
+    //player Shot - Spawns a new prefab
+    [Header("Player Shot Skill")]
+    public GameObject playerShot; 
+    public float playerShotDamage;
+    public float playerShotSpeed;
+    public float playerShotCooldown;
+    private float playerShotCooldownMax;
 
     // Movement Data
     [Header("Movement Data")]
@@ -140,7 +140,7 @@ public class playerMovement : MonoBehaviour
         frostShieldDurationTotal = frostShieldDuration;
 
         // Frost Shot Cooldown
-        frostShotCooldownMax = frostShotCooldown; // Sets our rest value for the timer
+        playerShotCooldownMax = playerShotCooldown; // Sets our rest value for the timer
 
         // Sets up our Rigidbody
         if (GetComponent<Rigidbody>())
@@ -180,7 +180,7 @@ public class playerMovement : MonoBehaviour
         if (Input.GetButtonDown("Attack") && !attacking && !dodging) // E / A Xbox Controller / Mouse 1
         {
 
-            if (GetComponent<playerHP>().currentStamina < attackStaminaCost || frostShotCooldown > 0) // If we don't have the stamina for it don't attack
+            if (GetComponent<playerHP>().currentStamina < attackStaminaCost || playerShotCooldown > 0) // If we don't have the stamina for it don't attack
             {
                 attacking = false;
             }
@@ -193,8 +193,8 @@ public class playerMovement : MonoBehaviour
             }
 
         }
-        if (frostShotCooldown > 0)
-            frostShotCooldown -= Time.deltaTime;
+        if (playerShotCooldown > 0)
+            playerShotCooldown -= Time.deltaTime;
 
         // Frost Shield
         if (frostShield.activeSelf == true) // If it's on we run out the time, if it's out of time we turn it off
@@ -339,7 +339,7 @@ public class playerMovement : MonoBehaviour
         // Tells the rest of the code the attack is done
         attacking = false;
         crAttacking = false;
-        frostShotCooldown = frostShotCooldownMax;
+        playerShotCooldown = playerShotCooldownMax;
         anim.SetBool("Attacking", false);
     }
 
@@ -373,9 +373,9 @@ public class playerMovement : MonoBehaviour
         float spawnDistance = 1;
         Vector3 spawnPos = playerPosition + playerDirection * spawnDistance;
 
-        GameObject playerFrostShot = (GameObject)Instantiate(frostShot, spawnPos, transform.rotation); // Name of object spawned, position it spawns, Quaternion.Identity takes rotate value from this object
-        playerFrostShot.GetComponent<frostShot>().damageValue = frostShotDamage; // Sends the Damage value to the attack
-        playerFrostShot.GetComponent<frostShot>().shotSpeed = frostShotSpeed; // Sends the speed value to the attack
+        GameObject playerAttack = (GameObject)Instantiate(playerShot, spawnPos, transform.rotation); // Name of object spawned, position it spawns, Quaternion.Identity takes rotate value from this object
+        playerAttack.GetComponent<playerShot>().damageValue = playerShotDamage; // Sends the Damage value to the attack
+        playerAttack.GetComponent<playerShot>().shotSpeed = playerShotSpeed; // Sends the speed value to the attack
     }
 
     void castFrostShield()

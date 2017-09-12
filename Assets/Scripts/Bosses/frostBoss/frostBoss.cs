@@ -20,8 +20,11 @@ public class frostBoss : MonoBehaviour {
     // Various Attacks
     [Header("Attack Types")]
     public GameObject frostBlast;
+    public int blastCount;
+    public blastAttack bAttack;
 
     public GameObject pulse;
+    public GameObject pulseWarningParticles;
     public float pulseTimer;
     private float pulseTimerMax;
     
@@ -69,15 +72,16 @@ public class frostBoss : MonoBehaviour {
         {
             // Rolls a dice to pick his next attack.
             attackSelection = 1;
-
             attackTimer = attackTimerMax;
-            // Makes a random circle aroundn the boss
-            Vector3 pos = Random.insideUnitCircle * 5.0f;
 
             if (attackSelection == 1)
             {
                 // Frost Blast
-                GameObject currentBlast = (GameObject)Instantiate(frostBlast, new Vector3(pos.x, 1, pos.z), transform.rotation);
+                for (int i = 0; i < blastCount; i++)
+                {
+                    bAttack.bAttack();
+                    GameObject currentBlast = (GameObject)Instantiate(frostBlast, bAttack.blastPosition, transform.rotation);
+                }
             }
         }
         else

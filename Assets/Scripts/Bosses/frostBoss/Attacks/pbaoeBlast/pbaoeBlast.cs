@@ -23,6 +23,8 @@ public class pbaoeBlast : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (!warningIndicator) // If we don't have this setup already we attach the proper game object
+            warningIndicator = GetComponentInParent<frostBoss>().pulseWarningParticles;
         warningIndicator.SetActive(true);
 
         // Set all cyls to 0
@@ -43,10 +45,13 @@ public class pbaoeBlast : MonoBehaviour
             {
                 cyl1.transform.localScale += new Vector3(growthRate, 0, growthRate);
                 cyl1.transform.Rotate(0, growthRate*7, 0); // Gives it a sweet spin
+            }   
+            else
+            {
+                reverse = true;
+                warningIndicator.SetActive(false); // We turn off the particles on the boss once the reverse hits
             }
                 
-            else
-                reverse = true;
             if (cyl1.transform.localScale.y < cyl1MaxSize.y) // Same for Y scaling
                 cyl1.transform.localScale += new Vector3(0, growthRate * 0.1f, 0); // But slower since Y doesn't go as high
         }

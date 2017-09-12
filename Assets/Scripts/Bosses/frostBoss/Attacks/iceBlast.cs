@@ -10,6 +10,9 @@ public class iceBlast : MonoBehaviour
     public string section;
     public GameObject damagePart;
     public GameObject indicator;
+    [Header("Coded like shit, only apply on Sphere")]
+    public float blastSize;
+    public float blastGrowSpeed;
 
     // Use this for initialization
     void Start()
@@ -46,16 +49,16 @@ public class iceBlast : MonoBehaviour
             if (timer > 0)
                 timer -= Time.deltaTime;
 
-            if (transform.localScale.x < 10f && timer <= 0)
+            if (transform.localScale.x < blastSize && timer <= 0)
             {
-                transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
+                transform.localScale += new Vector3(blastGrowSpeed, blastGrowSpeed, blastGrowSpeed);
                 // Enable the collider so we can take damage
                 GetComponent<SphereCollider>().enabled = true;
                 if (timer < 1)// Checks if the timer is almost out and turns off the particle indicator
                     Destroy(indicator);
             }
                 
-            else if (transform.localScale.x >= 10f)
+            else if (transform.localScale.x >= blastSize)
                 Destroy(gameObject);
 
         }
