@@ -2238,7 +2238,7 @@ MonoBehaviour:
   minDistance: 10
   maxDistance: 20
   frostBlast: {fileID: 1819647437189966, guid: f68492dae20a9c04b818488c70c91cce, type: 2}
-  blastCount: 20
+  blastCount: 15
   bAttack: {fileID: 0}
   pulse: {fileID: 1716517583318058, guid: db6a1020624cf3740b5a9f8379637721, type: 2}
   pulseWarningParticles: {fileID: 1029459327044442}
@@ -2259,6 +2259,8 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   anim: {fileID: 9526084}
+  dead: 0
+  active: 0
 --- !u!136 &136035034774126598
 CapsuleCollider:
   m_ObjectHideFlags: 1

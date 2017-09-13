@@ -10,7 +10,10 @@ public class enemyHealth : MonoBehaviour {
     [Header("Animator")]
     public Animator anim;
 
-    private bool dead;
+    [HideInInspector]
+    public bool dead;
+    [HideInInspector]
+    public bool active;
 
 
     // Use this for initialization
@@ -27,6 +30,7 @@ public class enemyHealth : MonoBehaviour {
 
     public void takeDamage(float amount)
     {
+        if (!active) active = true;
         if (currentHealth > 0)
         {
             anim.SetTrigger("Hit");

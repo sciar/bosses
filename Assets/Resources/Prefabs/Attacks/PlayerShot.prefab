@@ -115,7 +115,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306593261982976}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54740781931499628
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -226,10 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216c8a72ce4b82c43ab64bfe094f56d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 0
   playerDirection: {x: 0, y: 0, z: 0}
-  distance: 5
-  damageValue: 10
-  shotSpeed: 6
+  damageValue: 0
+  shotSpeed: 0
 --- !u!114 &114737048664619260
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -65,6 +65,7 @@ public class playerMovement : MonoBehaviour
     public float playerShotSpeed;
     public float playerShotCooldown;
     private float playerShotCooldownMax;
+    public float playerShotDuration;
 
     // Movement Data
     [Header("Movement Data")]
@@ -141,6 +142,7 @@ public class playerMovement : MonoBehaviour
 
         // Frost Shot Cooldown
         playerShotCooldownMax = playerShotCooldown; // Sets our rest value for the timer
+        playerShotCooldown = 0f; // Make it so we don't have a cooldown instantly and can use our attack right away
 
         // Sets up our Rigidbody
         if (GetComponent<Rigidbody>())
@@ -362,6 +364,7 @@ public class playerMovement : MonoBehaviour
         // Tells the rest of the code the attack is done
         attacking = false;
         crAttacking = false;
+        playerShotCooldown = playerShotCooldownMax;
         anim.SetBool("Attacking", false);
     }
 
@@ -376,6 +379,7 @@ public class playerMovement : MonoBehaviour
         GameObject playerAttack = (GameObject)Instantiate(playerShot, spawnPos, transform.rotation); // Name of object spawned, position it spawns, Quaternion.Identity takes rotate value from this object
         playerAttack.GetComponent<playerShot>().damageValue = playerShotDamage; // Sends the Damage value to the attack
         playerAttack.GetComponent<playerShot>().shotSpeed = playerShotSpeed; // Sends the speed value to the attack
+        playerAttack.GetComponent<playerShot>().duration = playerShotDuration; // Sends the speed value to the attack
     }
 
     void castFrostShield()

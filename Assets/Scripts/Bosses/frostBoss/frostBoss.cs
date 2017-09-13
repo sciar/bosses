@@ -16,6 +16,7 @@ public class frostBoss : MonoBehaviour {
     private float attackTimer = 4f;
     private float attackTimerMax;
     private int attackSelection;
+    private bool active = false;
 
     // Various Attacks
     [Header("Attack Types")]
@@ -48,6 +49,7 @@ public class frostBoss : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        active = GetComponent<enemyHealth>().active;
 
         // Makes his mesh do that cool woshy thing
         if (meshDirection == "up")
@@ -67,37 +69,40 @@ public class frostBoss : MonoBehaviour {
         }
         bossMesh.material.mainTextureScale = new Vector2(meshX, 1);
 
-
-        if (attackTimer <= 0)
+        // If boss is activated and not dead we do attack stuff
+        if (active && !GetComponent<enemyHealth>().dead)
         {
-            // Rolls a dice to pick his next attack.
-            attackSelection = 1;
-            attackTimer = attackTimerMax;
-
-            if (attackSelection == 1)
+            if (attackTimer <= 0)
             {
-                // Frost Blast
-                for (int i = 0; i < blastCount; i++)
+                // Rolls a dice to pick his next attack.
+                attackSelection = 1;
+                attackTimer = attackTimerMax;
+
+                if (attackSelection == 1)
                 {
-                    bAttack.bAttack();
-                    GameObject currentBlast = (GameObject)Instantiate(frostBlast, bAttack.blastPosition, transform.rotation);
+                    // Frost Blast
+                    for (int i = 0; i < blastCount; i++)
+                    {
+                        bAttack.bAttack();
+                        GameObject currentBlast = (GameObject)Instantiate(frostBlast, bAttack.blastPosition, transform.rotation);
+                    }
                 }
             }
-        }
-        else
-        {
-            attackTimer -= Time.deltaTime;
+            else
+            {
+                attackTimer -= Time.deltaTime;
+            }
 
+            // AOE PULSE ATTACK
+            if (pulseTimer <= 0)
+            {
+                GameObject pulseGo = (GameObject)Instantiate(pulse, new Vector3(transform.position.x, 0.5f, transform.position.z), transform.rotation);
+                pulseGo.transform.parent = this.transform;
+                pulseTimer = pulseTimerMax;
+            }
+            else pulseTimer -= Time.deltaTime;
         }
-
-        // AOE PULSE ATTACK
-        if (pulseTimer <= 0)
-        {
-            GameObject pulseGo = (GameObject)Instantiate(pulse, new Vector3(transform.position.x, 0.5f, transform.position.z), transform.rotation);
-            pulseGo.transform.parent = this.transform;
-            pulseTimer = pulseTimerMax;
-        }
-        else pulseTimer -= Time.deltaTime;
+        
     }
 
     private void FixedUpdate()
