@@ -66,6 +66,7 @@ public class playerMovement : MonoBehaviour
     public float playerShotCooldown;
     private float playerShotCooldownMax;
     public float playerShotDuration;
+    public float playerAttackAnimationDuration;
 
     // Movement Data
     [Header("Movement Data")]
@@ -154,8 +155,7 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetAxisRaw("Triggers") > 0 || Input.GetMouseButton(1) ) // LEFT TRIGGER Lock your aim position and move you slower
+        if (Input.GetAxisRaw("Triggers") > 0 || Input.GetMouseButton(1)) // LEFT TRIGGER Lock your aim position and move you slower
         {
             leftTrigger = true;
         }
@@ -171,7 +171,7 @@ public class playerMovement : MonoBehaviour
         lookTarget = GameObject.Find("facingDirection").transform;
         Vector3 towards = lookTarget.position - transform.position;
         towards.Normalize();
-        
+
         Quaternion target = Quaternion.LookRotation(towards, Vector3.up);
 
         if (!attacking && !leftTrigger && !dodging)
@@ -195,8 +195,17 @@ public class playerMovement : MonoBehaviour
             }
 
         }
+
         if (playerShotCooldown > 0)
+        {
             playerShotCooldown -= Time.deltaTime;
+            GetComponent<playerUI>().attackOnCooldown = true;
+        }
+        else
+            GetComponent<playerUI>().attackOnCooldown = false;
+            
+            
+            
 
         // Frost Shield
         if (frostShield.activeSelf == true) // If it's on we run out the time, if it's out of time we turn it off
@@ -225,8 +234,7 @@ public class playerMovement : MonoBehaviour
 
         if (attacking && !crAttacking) // Countdown to turn off our attack state
         {
-            float attackDuration = 1.2f;
-            StartCoroutine(AttackingFrostShot(attackDuration));
+            StartCoroutine(AttackingShot(playerAttackAnimationDuration));
             crAttacking = true;
             attackSlide = true;
         }
@@ -327,7 +335,7 @@ public class playerMovement : MonoBehaviour
         } // SCARF FINISHED
 
     }
-
+    /*
     IEnumerator Attacking(float duration) // Lets us set the character in an attack for X time
     {
         float timer = duration;  // Takes the duration when the CR is called
@@ -343,12 +351,13 @@ public class playerMovement : MonoBehaviour
         crAttacking = false;
         playerShotCooldown = playerShotCooldownMax;
         anim.SetBool("Attacking", false);
-    }
+    }*/
 
-    IEnumerator AttackingFrostShot(float duration) // Does the timer based portion of the frost shot
+    IEnumerator AttackingShot(float duration) // Does the timer based portion of the frost shot
     {
         float timer = duration;  // Takes the duration when the CR is called
         bool shot = false;
+        GetComponent<playerUI>().uiAttack("start");
 
         while (timer > 0) // As long as the duration is still going keep repeating the code
         {

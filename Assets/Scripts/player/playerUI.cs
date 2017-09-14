@@ -6,14 +6,19 @@ using UnityEngine.UI;
 public class playerUI : MonoBehaviour {
 
     public GameObject UIattackCooldown;
+    public bool attackOnCooldown;
+    public Animator attackCooldownAnim;
 	
-	// Update is called once per frame
-	void Update () {
-		if (GetComponent<playerMovement>().playerShotCooldown > 0)
+    public void uiAttack(string status)
+    {
+        if (status == "start")
         {
-            UIattackCooldown.GetComponent<Image>().color = Color.red;
+            attackCooldownAnim.Play("attackUsed");
         }
         else
-            UIattackCooldown.GetComponent<Image>().color = Color.blue;
+        {
+            attackCooldownAnim.Play("attackReady");
+        }
+            
     }
 }
